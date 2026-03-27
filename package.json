@@ -1,0 +1,66 @@
+{
+  "name": "nextgrep",
+  "version": "0.1.0",
+  "description": "Open-source agentic code search. An LLM-powered subagent that reasons through your codebase using parallel grep and file-read operations.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "nextgrep": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./mcp": {
+      "import": "./dist/mcp.js",
+      "types": "./dist/mcp.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc && cp -r plugins dist/",
+    "postbuild": "chmod +x dist/cli.js",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "lint": "biome check src/",
+    "format": "biome format --write src/"
+  },
+  "keywords": [
+    "code-search",
+    "ai",
+    "grep",
+    "llm",
+    "agentic",
+    "mcp",
+    "subagent",
+    "ripgrep"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "files": [
+    "dist/",
+    "plugins/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.73.0",
+    "commander": "^12.1.0",
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "chalk": "^5.3.0",
+    "ora": "^8.1.0",
+    "ignore": "^6.0.2",
+    "fast-glob": "^3.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0",
+    "vitest": "^2.1.0",
+    "@biomejs/biome": "^1.9.0"
+  }
+}
