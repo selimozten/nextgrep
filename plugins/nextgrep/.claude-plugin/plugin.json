@@ -1,0 +1,6 @@
+{
+  "name": "nextgrep",
+  "description": "AI-powered agentic code search. Uses an LLM subagent with parallel grep and file-read operations to find relevant code in your codebase.",
+  "version": "0.1.0",
+  "hooks": "./hooks/hook.json"
+}
